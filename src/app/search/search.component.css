@@ -1,0 +1,77 @@
+/* Styling the search form container */
+.mb-1 {
+  width: 100%;
+  max-width: 500px; /* Max width for the search box */
+  padding: 0 20px; /* Padding to ensure some space inside the container */
+  box-sizing: border-box; /* Ensures padding is included in width calculation */
+}
+
+/* Input card styles */
+.input-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input card form styling */
+.input-card-form {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Styling the input group */
+.input-group {
+  width: 100%;
+}
+
+.input-group .input-group-prepend {
+  background-color: #f0f0f0;
+  border-right: 1px solid #ddd;
+  padding: 8px;
+}
+
+.form-control {
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: none; /* Remove default shadow */
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Button styling */
+.btn-primary {
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  margin-left: 10px; /* Space between input and button */
+}
+
+.btn-primary i {
+  font-size: 1.2rem; /* Icon size inside the button */
+} 
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+  .input-card {
+    flex-direction: column;
+    align-items: stretch; /* Make the form elements stack vertically on small screens */
+  }
+
+  .btn-primary {
+    margin-left: 0; /* Remove margin when stacking vertically */
+    margin-top: 10px; /* Add some space between the input and the button */
+  }
+}

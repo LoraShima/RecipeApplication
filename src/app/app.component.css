@@ -1,0 +1,38 @@
+header {
+  text-align: center;
+}
+
+header img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+}
+
+header p {
+  margin: 0 auto;
+  font-size: 1.15rem;
+  max-width: 38ch;
+  color: #9eb5b4;
+}
+
+.search {
+  padding: 50px 0px 30px;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+app-search {
+  width: 100%; /* Allow app-search to take full width of the .search container */
+  max-width: 500px; /* Set a max width to avoid the search form becoming too wide */
+  padding: 0 20px; /* Optional: padding to add space inside the container */
+  box-sizing: border-box; /*Ensure padding doesn't affect the width */
+}
