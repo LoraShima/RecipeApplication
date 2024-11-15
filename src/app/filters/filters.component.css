@@ -72,25 +72,24 @@
   }
 }
 
-
-
 .sticky{
   margin-left: 50px;
-  /* position: fixed; */
+  position: sticky;
+  top: 150px;
 }
-
 
 label, h5{
   color: #7b1e0a;
 }
 
 /* will turn this color when clicked */
-.form-check-input:hover{ 
+.form-check-input:focus{ 
   background-color: #7b1e0a;
 }
 
 /* will have these properties when activated */
-a:hover{
+a:focus{
   background-color: #7b1e0a;
-  color: #f8f9fa
+  color: #f8f9fa;
+  box-shadow: #7b1e0a;
 }

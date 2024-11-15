@@ -7,6 +7,19 @@
   width: 100%;
 }
 
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+/* For small screens (e.g., mobile phones) */
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}
+
 .card {
   background-color: #ffffff;
   border-radius: 8px;
