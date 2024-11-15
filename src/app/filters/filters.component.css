@@ -45,8 +45,8 @@
 /* Styling for the tags */
 .btn-soft-secondary {
   background-color: #f8f9fa;
-  border-color: #e0e0e0;
-  color: #6c757d;
+  border-color: #7b1e0a;
+  color: #7b1e0a;
   font-size: 0.75rem; /* Small font size for the links */
   padding: 5px 10px; /* Padding for the button appearance */
 }
@@ -72,10 +72,25 @@
   }
 }
 
-/* .sticky{
-  position: fixed;
-  top: 250px; 
-  /* ^needs to change when scrolling, top should be higher 
-  width: 250px;
-} */
 
+
+.sticky{
+  margin-left: 50px;
+  /* position: fixed; */
+}
+
+
+label, h5{
+  color: #7b1e0a;
+}
+
+/* will turn this color when clicked */
+.form-check-input:hover{ 
+  background-color: #7b1e0a;
+}
+
+/* will have these properties when activated */
+a:hover{
+  background-color: #7b1e0a;
+  color: #f8f9fa
+}

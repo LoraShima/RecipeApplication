@@ -1,15 +1,19 @@
+/* .body{
+  background-color: #ffffff;
+} */
+
 header {
   text-align: center;
-  background-image: url(../assets/img/back1.jpg);
+  background-image: url(../assets/img/back3.jpg);
   background-size: cover;        /* Makes the image cover the full header area */
   background-repeat: no-repeat;  /* Prevents the image from repeating */
   background-position: center; 
-  height: 250px;
+  height: 300px;
 }
 
 header img {
   width: 5rem;
-  height: 5rem;
+  height: 7rem;
   object-fit: contain;
   background-color: transparent;
 }
@@ -27,7 +31,7 @@ header p {
   margin: 0 auto;
   font-size: 1.15rem;
   max-width: 38ch;
-  color: #9eb5b4;
+  color:#7b1e0a;
 }
 
 .search {
@@ -44,7 +48,7 @@ app-search {
   box-sizing: border-box; /*Ensure padding doesn't affect the width */
 }
 
-.container{
+.container-fluid{
   width: 100%;
   /* background-color: #7b1e0a; */
 }

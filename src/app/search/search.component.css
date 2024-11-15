@@ -33,6 +33,7 @@
   background-color: #f0f0f0;
   border-right: 1px solid #ddd;
   padding: 8px;
+  color: #7b1e0a;
 }
 
 .form-control {
@@ -45,7 +46,7 @@
 }
 
 .form-control:focus {
-  border-color: #007bff; /* Highlight border on focus */
+  border-color: #7b1e0a; /* Highlight border on focus */
 }
 
 /* Button styling */
@@ -53,8 +54,8 @@
   border-radius: 8px;
   padding: 10px 15px;
   font-size: 1rem;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #7b1e0a;
+  border-color: #7b1e0a;
   color: white;
   margin-left: 10px; /* Space between input and button */
 }
