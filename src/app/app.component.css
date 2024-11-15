@@ -1,5 +1,10 @@
 header {
   text-align: center;
+  background-image: url(../assets/img/back1.jpg);
+  background-size: cover;        /* Makes the image cover the full header area */
+  background-repeat: no-repeat;  /* Prevents the image from repeating */
+  background-position: center; 
+  height: 250px;
 }
 
 header img {
@@ -14,6 +19,8 @@ header h1 {
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: 1rem;
+  color:#7b1e0a;
+  text-shadow: 4px 4px 5px #7b1e0a;
 }
 
 header p {
@@ -24,7 +31,7 @@ header p {
 }
 
 .search {
-  padding: 50px 0px 30px;
+  padding: 50px 0px 40px;
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
@@ -36,3 +43,9 @@ app-search {
   padding: 0 20px; /* Optional: padding to add space inside the container */
   box-sizing: border-box; /*Ensure padding doesn't affect the width */
 }
+
+.container{
+  width: 100%;
+  /* background-color: #7b1e0a; */
+}
+

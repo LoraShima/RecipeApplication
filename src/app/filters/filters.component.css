@@ -1,74 +1,81 @@
 /* Ensuring the container takes the full width of its parent */
 .container {
-    width: 100%;         /* Full width of the parent component */
-    padding: 0 15px;     /* Padding to ensure space on smaller screens */
-    max-width: 1200px;   /* Optional max-width for larger screens */
-    margin: 0 auto;      /* Centers the container horizontally */
-  }
-  
-  /* For the row, ensuring proper alignment */
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Ensures the tag container fits within the given column size */
-  .col-md-5 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-  }
-  
+  width: 100%; /* Full width of the parent component */
+  padding: 0 15px; /* Padding to ensure space on smaller screens */
+  max-width: 1200px; /* Optional max-width for larger screens */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* For the row, ensuring proper alignment */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ensures the tag container fits within the given column size */
+.col-md-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.d-md-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center;
+}
+
+.text-center {
+  text-align: center; /* Center the text on small screens */
+}
+
+.text-md-start {
+  text-align: left; /* Align text to the left on larger screens */
+}
+
+.m-1 {
+  margin: 5px; /* Margin between each tag link */
+}
+
+/* Styling for the tags */
+.btn-soft-secondary {
+  background-color: #f8f9fa;
+  border-color: #e0e0e0;
+  color: #6c757d;
+  font-size: 0.75rem; /* Small font size for the links */
+  padding: 5px 10px; /* Padding for the button appearance */
+}
+
+.btn-xs {
+  font-size: 0.75rem; /* Extra small button size */
+}
+
+.rounded-pill {
+  border-radius: 50rem; /* Rounded corners for the tags */
+}
+
+/* For smaller screens (max-width 767px) */
+@media (max-width: 767px) {
   .d-md-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: center; /* Center the tags on smaller screens */
     align-items: center;
   }
-  
-  .text-center {
-    text-align: center; /* Center the text on small screens */
+
+  .col-md-5 {
+    max-width: 100%; /* Take full width of the container on smaller screens */
+    padding: 10px 0; /* Add padding to prevent tags from touching edges */
   }
-  
-  .text-md-start {
-    text-align: left;  /* Align text to the left on larger screens */
-  }
-  
-  .m-1 {
-    margin: 5px;  /* Margin between each tag link */
-  }
-  
-  /* Styling for the tags */
-  .btn-soft-secondary {
-    background-color: #f8f9fa;
-    border-color: #e0e0e0;
-    color: #6c757d;
-    font-size: 0.75rem;  /* Small font size for the links */
-    padding: 5px 10px;   /* Padding for the button appearance */
-  }
-  
-  .btn-xs {
-    font-size: 0.75rem;  /* Extra small button size */
-  }
-  
-  .rounded-pill {
-    border-radius: 50rem; /* Rounded corners for the tags */
-  }
-  
-  /* For smaller screens (max-width 767px) */
-  @media (max-width: 767px) {
-    .d-md-flex {
-      justify-content: center; /* Center the tags on smaller screens */
-      align-items: center;
-    }
-  
-    .col-md-5 {
-      max-width: 100%;  /* Take full width of the container on smaller screens */
-      padding: 10px 0;  /* Add padding to prevent tags from touching edges */
-    }
-  }
-  
+}
+
+/* .sticky{
+  position: fixed;
+  top: 250px; 
+  /* ^needs to change when scrolling, top should be higher 
+  width: 250px;
+} */
+
