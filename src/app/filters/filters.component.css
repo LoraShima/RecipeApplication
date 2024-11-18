@@ -1,8 +1,59 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .sticky{
+    width: 200px;
+  }
+
+  .mb-5{
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sticky{
+    width: 80%;
+  }
+
+  .mb-5{
+    max-width: 80%;
+    /* margin-left: 5%; */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  /* .sticky{
+    width: 600px;
+  }
+
+  .mb-5{
+    width: 400px;
+    margin-left: 4%;
+  } */
+}
+
+@media only screen and (max-width: 1024px) {
+  .sticky{
+    width: 1000px;
+    margin-left: 90%;
+  }
+
+  .mb-5{
+    width: 700px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .sticky{
+    width: 100%;
+    margin-left: 10px;
+  }
+}
+
 /* Ensuring the container takes the full width of its parent */
 .container {
   width: 100%; /* Full width of the parent component */
   padding: 0 15px; /* Padding to ensure space on smaller screens */
-  max-width: 1200px; /* Optional max-width for larger screens */
+  max-width: 1200px; /*Optional max-width for larger screens */
   margin: 0 auto; /* Centers the container horizontally */
 }
 
@@ -59,27 +110,13 @@
   border-radius: 50rem; /* Rounded corners for the tags */
 }
 
-/* For smaller screens (max-width 767px) */
-@media (max-width: 767px) {
-  .d-md-flex {
-    justify-content: center; /* Center the tags on smaller screens */
-    align-items: center;
-  }
-
-  .col-md-5 {
-    max-width: 100%; /* Take full width of the container on smaller screens */
-    padding: 10px 0; /* Add padding to prevent tags from touching edges */
-  }
-}
-
-.sticky{
-  margin-left: 50px;
-  position: sticky;
-  top: 150px;
-}
-
 label, h5{
   color: #7b1e0a;
+}
+
+h5{
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 /* will turn this color when clicked */

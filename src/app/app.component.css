@@ -1,6 +1,78 @@
-/* .body{
-  background-color: #ffffff;
-} */
+.container-fluid{
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px){  
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .col-9 {
+    order: 1; /* Show recipe info first */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-2 {
+    order: 2; /* Show filters second */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-1 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px){  
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .col-9 {
+    order: 1; /* Show recipe info first */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-2 {
+    order: 2; /* Show filters second */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-1 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 992px){  
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .col-9 {
+    order: 1; /* Show recipe info first */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-2 {
+    order: 2; /* Show filters second */
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .col-1 {
+    display: none;
+  }
+}
 
 header {
   text-align: center;
@@ -50,6 +122,5 @@ app-search {
 
 .container-fluid{
   width: 100%;
-  /* background-color: #7b1e0a; */
 }
 

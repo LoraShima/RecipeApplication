@@ -7,16 +7,32 @@
   width: 100%;
 }
 
-@media (max-width: 1024px) {
+/* For small screens (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
   .card-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    grid-template-columns: 1fr; /* 1 card per row */
+    margin-left: 20%;
   }
 }
 
-/* For small screens (e.g., mobile phones) */
-@media (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .card-container {
     grid-template-columns: 1fr; /* 1 card per row */
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .card-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+    margin-left: 20%;
   }
 }
 
