@@ -24,6 +24,7 @@ export class RecipesServices {
   }
 
   loadAvailableTags(){
+    //HttpClient.get() in Angular always returns an observable. 
     return this.httpClient.get('https://dummyjson.com/recipes/tags');
   }
 

@@ -29,7 +29,10 @@ export class RecipesComponent implements OnInit {
         console.error(error);
       },
       complete: () => {
-        this.onSelectedRecipe();
+        //this.onSelectedRecipe(); WORKS
+        //this.onRecipeByTag(); WORKS
+        //this.onAvailableTags(); //WORKS
+        //this.onRecipeByMeal(); WORKS
         this.isFetching.set(false);
       },
     });
@@ -47,5 +50,35 @@ export class RecipesComponent implements OnInit {
           console.log(resData);
         },
       });
+  }
+
+  onRecipeByTag() {
+    const subscription = this.recipesServices
+      .loadRecipesByTag('Pakistani')
+      .subscribe({
+        next: (resData) => {
+          console.log(resData);
+        },
+      });
+  }
+
+  onRecipeByMeal() {
+    const subscription = this.recipesServices
+      .loadRecipesByMeal('snack')
+      .subscribe({
+        next: (resData) => {
+          console.log(resData);
+        },
+      });
+  }
+
+  onAvailableTags() {
+    const subscription = this.recipesServices
+    .loadAvailableTags()
+    .subscribe({
+      next: (resData) => {
+        console.log(resData);
+      },
+    });
   }
 }
