@@ -1,12 +1,13 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Recipe } from './recipe.model';
+import { count, map, Observable, reduce } from 'rxjs';
+//import { Recipe } from './recipe.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesServices {
-  private availableRecipes = signal<Recipe[]>([]);
+  //private availableRecipes = signal<Recipe[]>([]);
   data = [];
 
   private httpClient = inject(HttpClient);
@@ -35,4 +36,19 @@ export class RecipesServices {
   loadRecipesByMeal(name: string){
     return this.httpClient.get('https://dummyjson.com/recipes/meal-type/'+name);
   }
+
+  // pipe -> modifies the observable stream before it is emitted
+  // pipe -> allows chaining RXJS operators to obs. to process the response data
+  // map -> takes the response and applies a transformation(getting the length)
+  //will return an pbservable that emits the count of recipes
+  numberOfRecipesByMeal(name: string){
+    return this.loadRecipesByMeal(name).pipe(
+      map((response: any) => {
+        return response.recipes.length;
+      })
+    );
+  }
+
 }
+
+

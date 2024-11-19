@@ -1,14 +1,8 @@
 <div class="card-container">
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
-  <div class="card"><app-recipe /></div>
+  @for(recipe of recipes; track recipe.id){
+    <div class="card">
+      <app-recipe [recipe]="recipe"></app-recipe>
+    </div>
+  }
 </div>
 
