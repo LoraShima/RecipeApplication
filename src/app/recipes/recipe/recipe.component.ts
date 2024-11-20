@@ -1,15 +1,16 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
   standalone: true,
   templateUrl: './recipe.component.html',
   styleUrl: './recipe.component.css',
+  imports: [RouterLink],
 })
 export class RecipeComponent{
 
-  @Input() recipe?: Recipe;
+  @Input() recipe!: Recipe;
 }
