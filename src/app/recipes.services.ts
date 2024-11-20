@@ -9,36 +9,33 @@ export class RecipesServices {
 
   private httpClient = inject(HttpClient);
 
+  private route: string = 'https://dummyjson.com/recipes/';
+
   loadAvailableRecipes() {
-    return this.httpClient.get('https://dummyjson.com/recipes');
+    return this.httpClient.get(this.route);
   }
 
   loadSelectedRecipeById(id: string) {
     //console.log(`https://dummyjson.com/recipes/${id}`)
     //works correctly ^
-    return this.httpClient.get(`https://dummyjson.com/recipes/${id}`);
-    
+    return this.httpClient.get(this.route + id);
   }
 
   loadNeededRecipe(name: string) {
-    return this.httpClient.get(
-      'https://dummyjson.com/recipes/search?q=' + name
-    );
+    return this.httpClient.get(this.route + name);
   }
 
   loadAvailableTags() {
     //HttpClient.get() in Angular always returns an observable.
-    return this.httpClient.get('https://dummyjson.com/recipes/tags');
+    return this.httpClient.get(this.route + 'tags');
   }
 
   loadRecipesByTag(name: string) {
-    return this.httpClient.get('https://dummyjson.com/recipes/tag/' + name);
+    return this.httpClient.get(this.route + 'tag/' + name);
   }
 
   loadRecipesByMeal(name: string) {
-    return this.httpClient.get(
-      'https://dummyjson.com/recipes/meal-type/' + name
-    );
+    return this.httpClient.get(this.route + 'meal-type/' + name);
   }
 
   // pipe -> modifies the observable stream before it is emitted
