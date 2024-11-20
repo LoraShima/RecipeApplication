@@ -146,7 +146,7 @@ span {
   }
 
   .info-group {
-    flex: 1 1 25%; /* 2 columns per row on small screens */
+    flex: 1 1 25%; /* 3 columns per row on small screens */
     max-width: 22%; /* Prevent overflow */
   }
 
@@ -159,7 +159,7 @@ span {
   img {
     margin-left: 15%;
     width: 70%;
-    height: 30%;
+    height: 50%;
   }
 
   .data {
