@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RecipesServices } from '../recipes.services';
+import { RecipesServices } from '../../recipes.services';
 import { Observable } from 'rxjs';
 
 @Component({

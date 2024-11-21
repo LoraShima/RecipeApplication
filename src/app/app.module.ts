@@ -3,10 +3,10 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { RecipesComponent } from "./recipes/recipes.component";
-import { FiltersComponent } from "./filters/filters.component";
+import { FiltersComponent } from "./recipes/filters/filters.component";
 import { SearchComponent } from "./search/search.component";
 import { RecipeInfoComponent } from "./recipes/recipe-info/recipe-info.component";
-import { HttpClientModule, provideHttpClient } from "@angular/common/http";
+import { provideHttpClient } from "@angular/common/http";
 import { RouterModule, RouterOutlet } from "@angular/router";
 //import { CommonModule } from "@angular/common";
 
@@ -19,7 +19,7 @@ import { RouterModule, RouterOutlet } from "@angular/router";
         {path: 'recipes/:id', component: RecipeInfoComponent},
         {path: '', redirectTo:'recipes', pathMatch:'full'},
         {path: '**', redirectTo:'recipes', pathMatch:'full'}
-      ]), RouterOutlet, HttpClientModule],
+      ]), RouterOutlet],
 })
 
 export class AppModule{

@@ -17,11 +17,14 @@ export class RecipeInfoComponent implements OnInit {
   private router = inject(ActivatedRoute);
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     const recipeId = this.router.snapshot.paramMap.get('id');
     console.log('kot ' + recipeId); //we get it correctly
     if (recipeId) {
-      const subscription = this.recipesServices.loadSelectedRecipeById(recipeId).subscribe({
-        next: (response: any) => {
+      const subscription = this.recipesServices
+        .loadSelectedRecipeById(recipeId)
+        .subscribe({
+          next: (response: any) => {
             console.log(response);
             this.recipe = response;
           },
@@ -31,8 +34,7 @@ export class RecipeInfoComponent implements OnInit {
           complete: () => {
             subscription.unsubscribe();
           },
-  
-      });
+        });
     } else {
       console.log('Recipe name is null or undefined.');
     }
