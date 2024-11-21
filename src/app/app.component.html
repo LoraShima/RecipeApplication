@@ -1,27 +1,18 @@
 <header>
-  <img src="../assets/img/apron.png" alt="Symbol"/>
-  <h1>Recipes</h1><br>
-  <p>“Cooking is like love. It should be entered into with abandon or not at all.”
-    <br>– Harriet Van Horne</p>
+  <img src="../assets/img/apron.png" alt="Symbol" />
+  <h1>Recipes</h1>
+  <br />
+  <p>
+    “Cooking is like love. It should be entered into with abandon or not at
+    all.” <br />– Harriet Van Horne
+  </p>
 </header>
 
 <main>
-<div class="body">
-  <div class="search">
-    <app-search />
-  </div>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2">
-        <app-filters />
-      </div>
-      <div class="col-1">
-      </div>
-      <div class="col-9">
-        <router-outlet></router-outlet>
-      </div>
+  <div class="body">
+    <div class="search">
+      <app-search />
     </div>
+    <app-recipes />
   </div>
-</div>
 </main>

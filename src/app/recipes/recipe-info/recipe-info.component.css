@@ -204,3 +204,14 @@ li {
   font-size: large;
   list-style-type: circle;
 }
+
+.button{
+  background-color: #ddd ;
+  border-radius: 20%;
+  border-color: #7b1e0a;
+  color: #7b1e0a;
+  font-weight: bold;
+  width: 120px;
+  height: 60px;
+  margin-top: 100px;
+}

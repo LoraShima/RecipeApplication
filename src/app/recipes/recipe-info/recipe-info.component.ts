@@ -39,4 +39,8 @@ export class RecipeInfoComponent implements OnInit {
       console.log('Recipe name is null or undefined.');
     }
   }
+
+  goBack() {
+    window.history.back();	
+  }
 }

@@ -1,8 +1,17 @@
-<div class="card-container">
-  @for(recipe of recipes; track recipe.id){
-    <div class="card">
-      <app-recipe [recipe]="recipe"></app-recipe>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Filters Column -->
+    <div class="col-2">
+      <app-filters></app-filters>
     </div>
-  }
+
+    <!-- Spacer Column -->
+    <div class="col-1"></div>
+
+    <!-- Content Column -->
+    <div class="col-9">
+      <router-outlet> </router-outlet>
+    </div>
+  </div>
 </div>
 

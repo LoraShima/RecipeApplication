@@ -1,7 +1,7 @@
-import { Component, inject, Input } from '@angular/core';
-import { RecipesServices } from '../../recipes.services';
+import { Component, Input } from '@angular/core';
+//import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -13,4 +13,5 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 export class RecipeComponent{
 
   @Input() recipe!: Recipe;
+
 }
