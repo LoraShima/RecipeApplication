@@ -1,12 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
 import { RecipesServices } from '../../recipes.services';
-import { Observable } from 'rxjs';
-
+import { DataService } from '../data.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-filters',
   standalone: true,
   templateUrl: './filters.component.html',
   styleUrl: './filters.component.css',
+  imports: [FormsModule],
 })
 export class FiltersComponent implements OnInit {
   recipesServices = inject(RecipesServices);
@@ -33,6 +34,18 @@ export class FiltersComponent implements OnInit {
       });
     }
   }
+
+  //SENDING THE FILTER VALUE FOR THE MEAL-TYPE
+  filterValue: string = "";
+  private dataService = inject(DataService);
+
+  onFilterChanged(){
+    this.dataService.setFilterValue(this.filterValue);
+    console.log(this.filterValue); //is sent as a string //it is sent correctly
+  }
+
+
+
 
   //   fetchTags(){
   //     this.recipesServices.loadAvailableTags().subscribe({

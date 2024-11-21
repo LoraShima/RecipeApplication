@@ -27,15 +27,15 @@ export class RecipesServices {
 
   loadAvailableTags() {
     //HttpClient.get() in Angular always returns an observable.
-    return this.httpClient.get(this.route + 'tags');
+    return this.httpClient.get(`${this.route}tags`);
   }
 
   loadRecipesByTag(name: string) {
-    return this.httpClient.get(this.route + 'tag/' + name);
+    return this.httpClient.get(`${this.route}tag/${name}`);
   }
 
   loadRecipesByMeal(name: string) {
-    return this.httpClient.get(this.route + 'meal-type/' + name);
+    return this.httpClient.get(`${this.route}meal-type/${name}`);
   }
 
   // pipe -> modifies the observable stream before it is emitted

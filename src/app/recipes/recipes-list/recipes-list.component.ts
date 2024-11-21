@@ -2,28 +2,28 @@ import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
-import { RecipeComponent } from "../recipe/recipe.component";
+import { RecipeComponent } from '../recipe/recipe.component';
+import { DataService } from '../data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recipes-list',
   standalone: true,
   templateUrl: './recipes-list.component.html',
   styleUrl: './recipes-list.component.css',
-  imports: [
-    CommonModule,
-    RecipeComponent
-],
+  imports: [CommonModule, RecipeComponent, FormsModule],
 })
 export class RecipesListComponent implements OnInit {
-  //we console log the data we get form the API
   private recipesServices = inject(RecipesServices);
   private destroyRef = inject(DestroyRef);
-  //selectedRecipe = false;
 
   recipes: Recipe[] = [];
+  filterValue: string = '';
+  private dataService = inject(DataService);
+  recipesByMeal: Recipe[] = [];
 
   ngOnInit(): void {
-    const subscription = this.recipesServices.loadAvailableRecipes().subscribe({
+    this.recipesServices.loadAvailableRecipes().subscribe({
       next: (response: any) => {
         this.recipes = response.recipes;
       },
@@ -35,8 +35,23 @@ export class RecipesListComponent implements OnInit {
       },
     });
 
-    this.destroyRef.onDestroy(() => {
-      subscription.unsubscribe();
+    this.dataService.filterValue$.subscribe((value) => {
+      console.log('Filter value: ', value);
+      this.filterValue = value;
+
+      this.recipesServices.loadRecipesByMeal(this.filterValue).subscribe({
+        next: (filteredResponse: any) => {
+          console.log(
+            'recipes-list, this.filterValue:',
+            filteredResponse.recipes
+          );
+          this.recipesByMeal = filteredResponse.recipes;
+          console.log('Filtered recipes by meal: ', this.recipesByMeal);
+        },
+        error: (error: any) => {
+          console.error(error);
+        },
+      });
     });
   }
 }
