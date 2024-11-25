@@ -1,87 +1,82 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
-import { DataService } from '../data.service';
-import { FormsModule } from '@angular/forms';
+import { RecipesComponent } from '../recipes.component';
 
 @Component({
   selector: 'app-recipes-list',
   standalone: true,
   templateUrl: './recipes-list.component.html',
   styleUrl: './recipes-list.component.css',
-  imports: [CommonModule, RecipeComponent, FormsModule],
+  imports: [RecipeComponent],
 })
 export class RecipesListComponent implements OnInit {
-  private recipesServices = inject(RecipesServices);
-  private destroyRef = inject(DestroyRef);
-
   recipes: Recipe[] = [];
-  filterValue: string = '';
-  private dataService = inject(DataService);
+  recipesByTag: Recipe[] = [];
   recipesByMeal: Recipe[] = [];
+  tag: string | null = null;
+  mealType: string | null = null;
+
+  private recipesServices = inject(RecipesServices);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.recipesServices.loadAvailableRecipes().subscribe({
-      next: (response: any) => {
-        this.recipes = response.recipes;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => {
-        console.log('Recipes loaded: ', this.recipes);
-      },
+    // Listen for changes in query parameters
+    this.route.queryParams.subscribe((params) => {
+      // Extract the tag and mealType from query params
+      this.tag = params['tag'] || null;
+      this.mealType = params['mealType'] || null;
+
+      // Fetch recipes based on the tag and mealType
+      this.loadRecipes();
     });
+  }
 
-    this.dataService.filterValue$.subscribe((value) => {
-      console.log('Filter value: ', value);
-      this.filterValue = value;
+  // Method to load recipes based on the selected tag or mealType
+  loadRecipes(): void {
+    // Reset the recipes arrays before fetching new data
+    this.recipesByTag = [];
+    this.recipesByMeal = [];
 
-      this.recipesServices.loadRecipesByMeal(this.filterValue).subscribe({
-        next: (filteredResponse: any) => {
-          console.log(
-            'recipes-list, this.filterValue:',
-            filteredResponse.recipes
-          );
-          this.recipesByMeal = filteredResponse.recipes;
-          console.log('Filtered recipes by meal: ', this.recipesByMeal);
+    // Load recipes based on the tag if it is selected
+    if (this.tag) {
+      this.recipesServices.loadRecipesByTag(this.tag).subscribe({
+        next: (response: any) => {
+          this.recipesByTag = response.recipes;
+          console.log('Filtered recipes by tag: ', this.recipesByTag);
         },
-        error: (error: any) => {
+        error: (error) => {
           console.error(error);
         },
       });
-    });
+    }
+
+    // Load recipes based on the mealType if it is selected
+    if (this.mealType) {
+      this.recipesServices.loadRecipesByMeal(this.mealType).subscribe({
+        next: (response: any) => {
+          this.recipesByMeal = response.recipes;
+          console.log('Filtered recipes by meal: ', this.recipesByMeal);
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
+    }
+
+    // If no filters are applied, load all recipes
+    if (!this.tag && !this.mealType) {
+      this.recipesServices.loadAvailableRecipes().subscribe({
+        next: (response: any) => {
+          this.recipes = response.recipes;
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
+    }
   }
 }
 
-// onRecipeByTag() {
-//   const subscription = this.recipesServices
-//     .loadRecipesByTag('Pakistani')
-//     .subscribe({
-//       next: (resData) => {
-//         console.log(resData);
-//       },
-//     });
-// }
-
-// onRecipeByMeal() {
-//   const subscription = this.recipesServices
-//     .loadRecipesByMeal('snack')
-//     .subscribe({
-//       next: (resData) => {
-//         console.log(resData);
-//       },
-//     });
-// }
-
-// onAvailableTags() {
-//   const subscription = this.recipesServices
-//   .loadAvailableTags()
-//   .subscribe({
-//     next: (resData) => {
-//       console.log(resData);
-//     },
-//   });
-// }

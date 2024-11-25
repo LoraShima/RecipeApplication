@@ -19,7 +19,7 @@ export class RecipeInfoComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     const recipeId = this.router.snapshot.paramMap.get('id');
-    console.log('kot ' + recipeId); //we get it correctly
+    //console.log('kot ' + recipeId); //we get it correctly
     if (recipeId) {
       const subscription = this.recipesServices
         .loadSelectedRecipeById(recipeId)

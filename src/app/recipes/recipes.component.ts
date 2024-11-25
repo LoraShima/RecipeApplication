@@ -1,7 +1,4 @@
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
-import { RecipeComponent } from './recipe/recipe.component';
-import { Recipe } from '../recipe.model';
-import { RecipesServices } from '../recipes.services';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //import { RecipeInfoComponent } from './recipe-info/recipe-info.component';
 import { FiltersComponent } from './filters/filters.component';

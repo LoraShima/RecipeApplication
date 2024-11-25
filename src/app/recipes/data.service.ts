@@ -12,7 +12,7 @@ export class DataService {
     //method to update the value in service
     setFilterValue(value: string){
         this.filterValueSubject.next(value);  //emit new value to subscribers
-        console.log("Data Service: "+ value); //deri ketu jemi ne rregull
+        console.log("Data Service: "+ value); 
     }
 
     //optionally, method to get the current value directly
