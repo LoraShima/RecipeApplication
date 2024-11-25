@@ -8,10 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { RecipeInfoComponent } from './recipes/recipe-info/recipe-info.component';
 import { provideHttpClient } from '@angular/common/http';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
-import { NgModel } from '@angular/forms';
-//import { CommonModule } from "@angular/common";
+
 
 @NgModule({
   providers: [provideHttpClient()],

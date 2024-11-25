@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-//import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
 import { RouterLink } from '@angular/router';
 

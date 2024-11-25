@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   private router = inject(Router);
   onHeaderClick(): void {
-    // Navigate to '/recipes' without any query parameters
     this.router.navigate(['/recipes'], { queryParams: { tag: null, mealType: null } });
   }
 }

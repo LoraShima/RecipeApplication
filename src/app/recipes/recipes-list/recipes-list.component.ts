@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { RecipesServices } from '../../recipes.services';
 import { Recipe } from '../../recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
-import { RecipesComponent } from '../recipes.component';
 
 @Component({
   selector: 'app-recipes-list',
@@ -23,24 +22,18 @@ export class RecipesListComponent implements OnInit {
   private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    // Listen for changes in query parameters
     this.route.queryParams.subscribe((params) => {
-      // Extract the tag and mealType from query params
       this.tag = params['tag'] || null;
       this.mealType = params['mealType'] || null;
 
-      // Fetch recipes based on the tag and mealType
       this.loadRecipes();
     });
   }
 
-  // Method to load recipes based on the selected tag or mealType
   loadRecipes(): void {
-    // Reset the recipes arrays before fetching new data
     this.recipesByTag = [];
     this.recipesByMeal = [];
 
-    // Load recipes based on the tag if it is selected
     if (this.tag) {
       this.recipesServices.loadRecipesByTag(this.tag).subscribe({
         next: (response: any) => {
@@ -53,7 +46,6 @@ export class RecipesListComponent implements OnInit {
       });
     }
 
-    // Load recipes based on the mealType if it is selected
     if (this.mealType) {
       this.recipesServices.loadRecipesByMeal(this.mealType).subscribe({
         next: (response: any) => {
@@ -66,7 +58,6 @@ export class RecipesListComponent implements OnInit {
       });
     }
 
-    // If no filters are applied, load all recipes
     if (!this.tag && !this.mealType) {
       this.recipesServices.loadAvailableRecipes().subscribe({
         next: (response: any) => {

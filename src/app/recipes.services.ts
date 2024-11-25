@@ -38,10 +38,6 @@ export class RecipesServices {
     return this.httpClient.get(`${this.route}meal-type/${name}`);
   }
 
-  // pipe -> modifies the observable stream before it is emitted
-  // pipe -> allows chaining RXJS operators to obs. to process the response data
-  // map -> takes the response and applies a transformation(getting the length)
-  //will return an pbservable that emits the count of recipes
   numberOfRecipesByMeal(name: string) {
     return this.loadRecipesByMeal(name).pipe(
       map((response: any) => {
