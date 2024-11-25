@@ -15,9 +15,11 @@ export class RecipesServices {
     return this.httpClient.get(this.route);
   }
 
+  loadRecipesBySearch(name: string){
+    return this.httpClient.get(`${this.route}search?q=${name}`);
+  }
+
   loadSelectedRecipeById(id: string) {
-    //console.log(`https://dummyjson.com/recipes/${id}`)
-    //works correctly ^
     return this.httpClient.get(this.route + id);
   }
 

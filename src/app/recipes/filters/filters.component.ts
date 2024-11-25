@@ -24,6 +24,7 @@ export class FiltersComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute)
   tag: string | null = null;
+  filterValue: string = "";
 
   ngOnInit() {
     for (let i = 0; i < this.mealTypes.length; i++) {
@@ -42,8 +43,6 @@ export class FiltersComponent implements OnInit {
       }
     });
   }
-
-  filterValue: string = "";
 
   onFilterChanged(){
     this.router.navigate(['/recipes'], { queryParams: { mealType: this.filterValue, tag:null },

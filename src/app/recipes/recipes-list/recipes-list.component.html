@@ -14,7 +14,15 @@
   </div>
   }
 </div>
-} @else {
+} @else if (this.search) {
+<div class="card-container">
+  @for(recipe of recipesBySearch; track recipe.id){
+  <div class="card">
+    <app-recipe [recipe]="recipe"></app-recipe>
+  </div>
+  }
+</div>
+}@else {
 <div class="card-container">
   @for(recipe of recipes; track recipe.id){
   <div class="card">
